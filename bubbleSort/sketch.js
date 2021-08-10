@@ -5,24 +5,23 @@ let j = 0;
 
 function setup() {
   createCanvas(400, 400);
-  values = [width];
+  values = [400];
   // gets 400 random whole numbers 1 - height 
   for (let i = 1; i < width; i++) {
-    values.push(Math.floor(Math.random() * (height - 1) + 1))
+    values.push((Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')); // creates 400 random hexidecimal colors
   }
   // sorted yay.. values = sort(values)
 }
 
 function draw() {
   background(0);
-
   // loop that runs bubble sort 60 times a second
-  for (let k = 0; k < 60; k++) {
+  for (let k = 0; k < 100; k++) {
     bubbleSort();
   }
 
   for (let i = 0; i < values.length; i++) {
-    stroke(255);
+    stroke(`#${values[i]}`);
     line(i, height, i, height - values[i]); // draws line with value at index i
   }
 }
