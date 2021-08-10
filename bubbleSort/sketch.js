@@ -16,6 +16,25 @@ function setup() {
 function draw() {
   background(0);
 
+  // loop that runs bubble sort 60 times a second
+  for (let k = 0; k < 60; k++) {
+    bubbleSort();
+  }
+
+  for (let i = 0; i < values.length; i++) {
+    stroke(255);
+    line(i, height, i, height - values[i]); // draws line with value at index i
+  }
+}
+
+
+
+
+
+
+
+
+const bubbleSort = () => {
   let a = values[j];
   let b = values[j + 1];
    if (a > b) {
@@ -33,23 +52,6 @@ function draw() {
     }
 
     }
-  for (let i = 0; i < values.length; i++) {
-    stroke(255);
-    line(i, height, i, height - values[i]); // draws line with value at index i
-  }
-}
-
-// 
-const bubbleSort = () => {
-  for (let i = 0; i < values.length; i++) {
-    for (let j = 0; j < values.length - 1; j++) {
-      let a = values[j];
-      let b = values[j + 1];
-      if (a > b) {
-        swap(values, j, j + 1)
-      }
-    }
-  }
 }
 
 
